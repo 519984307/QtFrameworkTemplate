@@ -12,72 +12,24 @@
 
 #include "mainapplication.h"
 #include "definitions/basemoduletype.h"
-#include "download/networkaccessmanager.h"
-#include "interfaces/datacenter/data/iresponseinfo.h"
-#include "interfaces/datacenter/data/ifolderinfo.h"
-#include "interfaces/datacenter/data/ifileinfo.h"
-#include "interfaces/datacenter/data/itaginfo.h"
-#include "interfaces/datacenter/data/itypeinfo.h"
-#include "interfaces/datacenter/data/itaggroupinfo.h"
-#include "interfaces/datacenter/data/iscanduplicateresponseinfo.h"
-#include "interfaces/inetserver.h"
-#include "interfaces/datacenter/data/irecycleinfo.h"
-#include "interfaces/datacenter/iresourcelibrarymanager.h"
+//#include "download/networkaccessmanager.h"
+//#include "interfaces/datacenter/data/iresponseinfo.h"
+//#include "interfaces/datacenter/data/ifolderinfo.h"
+//#include "interfaces/datacenter/data/ifileinfo.h"
+//#include "interfaces/datacenter/data/itaginfo.h"
+//#include "interfaces/datacenter/data/itypeinfo.h"
+//#include "interfaces/datacenter/data/itaggroupinfo.h"
+//#include "interfaces/datacenter/data/iscanduplicateresponseinfo.h"
+//#include "interfaces/inetserver.h"
+//#include "interfaces/datacenter/data/irecycleinfo.h"
+//#include "interfaces/datacenter/iresourcelibrarymanager.h"
 #include "CAppSingle.h"
 #include <QCommandLineParser>
 #include"utils/BFCommandLineParser.h"
 
 int main(int argc, char* argv[]) {
-  qRegisterMetaType<QSharedPointer<const IResponseInfo>>(
-      "QSharedPointer<const IResponseInfo>");
   qRegisterMetaType<QVector<qint64>>("QVector<qint64>");
-  qRegisterMetaType<BFProviderSelectedParam>();
-  QMetaType::registerComparators<BFProviderSelectedParam>();
-  qRegisterMetaType<IFolderInfo*>("IFolderInfo*");
-  qRegisterMetaType<QSharedPointer<const IFolderInfo>>(
-      "QSharedPointer<const IFolderInfo>");
-  qRegisterMetaType<QVector<QSharedPointer<const IFolderInfo>>>(
-      "QVector<QSharedPointer<const IFolderInfo> >");
-  qRegisterMetaType<QVector<QPair<qint64, qint64>>>(
-      "  QVector<QPair<qint64,qint64> >");
-  qRegisterMetaType<IFolderInfo*>("IFileInfo*");
-  qRegisterMetaType<QSharedPointer<const IFileInfo>>(
-      "QSharedPointer<const IFileInfo>");
-  qRegisterMetaType<QVector<QSharedPointer<const IFileInfo>>>(
-      "QVector<QSharedPointer<const IFileInfo> >");
 
-  qRegisterMetaType<ITagInfo*>("ITagInfo*");
-  qRegisterMetaType<QSharedPointer<const ITagInfo>>(
-      "QSharedPointer<const ITagInfo>");
-  qRegisterMetaType<QVector<QSharedPointer<const ITagInfo>>>(
-      "QVector<QSharedPointer<const ITagInfo> >");
-
-  qRegisterMetaType<ITypeInfo*>("ITypeInfo*");
-  qRegisterMetaType<QSharedPointer<const ITypeInfo>>(
-      "QSharedPointer<const ITypeInfo>");
-  qRegisterMetaType<QVector<QSharedPointer<const ITypeInfo>>>(
-      "QVector<QSharedPointer<const ITypeInfo> >");
-
-  qRegisterMetaType<ITagGroupInfo*>("ITagGroupInfo*");
-  qRegisterMetaType<QSharedPointer<const ITagGroupInfo>>(
-      "QSharedPointer<const ITagGroupInfo>");
-  qRegisterMetaType<QVector<QSharedPointer<const ITagGroupInfo>>>(
-      "QVector<QSharedPointer<const ITagGroupInfo> >");
-
-  qRegisterMetaType<IScanDuplicateResponseInfo*>("IScanDuplicateResponseInfo*");
-  qRegisterMetaType<QSharedPointer<const IScanDuplicateResponseInfo>>(
-      "QSharedPointer<const IScanDuplicateResponseInfo>");
-  qRegisterMetaType<QVector<QSharedPointer<const IScanDuplicateResponseInfo>>>(
-      "QVector<QSharedPointer<const IScanDuplicateResponseInfo> >");
-
-  qRegisterMetaType<IBFWebTaskDataList*>("IBFWebTaskDataList*");
-
-  qRegisterMetaType<IRecycleInfo*>("IRecycleInfo*");
-  qRegisterMetaType<QSharedPointer<const IRecycleInfo>>(
-      "QSharedPointer<const IRecycleInfo>");
-  qRegisterMetaType<QVector<QSharedPointer<const IRecycleInfo>>>(
-      "QVector<QSharedPointer<const IRecycleInfo> >");
-  qRegisterMetaType<QMap<QString,LibraryInfo>>("QMap<QString,LibraryInfo>");
 
   QLocale::setDefault(QLocale(QLocale::Chinese, QLocale::AnyCountry));
 
@@ -153,15 +105,12 @@ int main(int argc, char* argv[]) {
     font.setFamily("Microsoft YaHei");
     app.setFont(font);
 #endif
-
-    NetworkAccessManager* nam = NetworkAccessManager::Instance();
     // app.setActivationWindow(&app,1);
     app.addLibraryPath(app.applicationDirPath());
     // QtSingleApplication app("id",argc,argv);
     //自启动的不显示主窗体
     app.setMainWidgetVisible(auto_start ? false : true);
     app.exec();
-    delete nam;
 #ifdef _WIN32
     CAppSingle::StopApp();
 #endif

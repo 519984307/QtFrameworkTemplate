@@ -15,11 +15,10 @@
 #include "regexp.h"
 #include <QApplication>
 #include <QMessageBox>
-#include "bfEventTrack/bfEventTrack.h"
+//#include "bfEventTrack/bfEventTrack.h"
 #include "bfskinsetting.h"
-#include "interfaces/imainwidget.h"
+//#include "interfaces/imainwidget.h"
 #include"utils/BFCommandLineParser.h"
-#include"bfEventTrack/bfeventtrack.h"
 #pragma execution_character_set("utf-8")
 
 #define DELAYED_QUIT_TIMEOUT 5000

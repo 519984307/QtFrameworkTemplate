@@ -17,8 +17,8 @@ INCLUDEPATH       += ../thirdparty
 LIBS += -L$$LIBSDESTDIR
 LIBS += -l$$TARGET_UTILS -lqxtglobalshortcut
 LIBS += -l$$TARGET_SKIN
-LIBS += -l$$TARGET_TRACE_EVENT
-LIBS += -l$$TARGET_DOWNLOAD
+#LIBS += -l$$TARGET_TRACE_EVENT
+#LIBS += -l$$TARGET_DOWNLOAD
 LIBS += -llog4qt
 LIBS += -lbfcommon
 INCLUDEPATH += ../utils
@@ -70,8 +70,8 @@ macx{
 
         DYLIB = $${TARGET}
         QMAKE_POST_LINK += install_name_tool -change lib$${TARGET_SKIN}.dylib  @executable_path/lib$${TARGET_SKIN}.dylib  $$DESTDIR/Billfish.app/Contents/MacOS/Billfish;
-        QMAKE_POST_LINK += install_name_tool -change lib$${TARGET_TRACE_EVENT}.dylib  @executable_path/lib$${TARGET_TRACE_EVENT}.dylib  $$DESTDIR/Billfish.app/Contents/MacOS/Billfish;
-        QMAKE_POST_LINK += install_name_tool -change lib$${TARGET_DOWNLOAD}.dylib  @executable_path/lib$${TARGET_DOWNLOAD}.dylib  $$DESTDIR/Billfish.app/Contents/MacOS/Billfish;
+        #QMAKE_POST_LINK += install_name_tool -change lib$${TARGET_TRACE_EVENT}.dylib  @executable_path/lib$${TARGET_TRACE_EVENT}.dylib  $$DESTDIR/Billfish.app/Contents/MacOS/Billfish;
+        #QMAKE_POST_LINK += install_name_tool -change lib$${TARGET_DOWNLOAD}.dylib  @executable_path/lib$${TARGET_DOWNLOAD}.dylib  $$DESTDIR/Billfish.app/Contents/MacOS/Billfish;
         QMAKE_POST_LINK += install_name_tool -change liblog4qt.dylib  @executable_path/liblog4qt.dylib  $$DESTDIR/Billfish.app/Contents/MacOS/Billfish;
         QMAKE_POST_LINK += install_name_tool -change libbfcommon.dylib  @executable_path/libbfcommon.dylib  $$DESTDIR/Billfish.app/Contents/MacOS/Billfish;
         message($$QMAKE_POST_LINK)

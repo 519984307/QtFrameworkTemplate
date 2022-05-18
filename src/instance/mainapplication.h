@@ -15,7 +15,7 @@
 #include "utils/log.h"
 
 #include "interfaces/iglobalsetting.h"
-#include "interfaces/imainwidget.h"
+//#include "interfaces/imainwidget.h"
 
 #include "pluginmanager.h"
 #include "qtsingleapplication.h"
@@ -74,7 +74,6 @@ public:
     QMenuBar *m_macMenuBar;
 #endif
     PluginManager* m_pluginManager;
-    IMainWidgetPlugin *m_mainWidgetPlugin;
 };
 
 #endif // MAINAPPLICATION_H

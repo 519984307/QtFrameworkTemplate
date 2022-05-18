@@ -20,7 +20,7 @@
 #include "regexp.h"
 #include "definitions/version.h"
 #include "utils/system_os.h"
-#include "system_defines.h"
+//#include "system_defines.h"
 #include "log4qt/basicconfigurator.h"
 #include "log4qt/fileappender.h"
 #include "log4qt/propertyconfigurator.h"
@@ -419,7 +419,7 @@ MainApplication::MainApplication(int &argc, char **argv) :
     connect(this, SIGNAL(aboutToQuit()), SLOT(onAboutToQuit()));
 
     m_pluginManager = NULL;
-    m_mainWidgetPlugin = NULL;
+   // m_mainWidgetPlugin = NULL;
     newPluginManager();
 
     QString homePathQ = m_pluginManager->homePath() + "/";
@@ -509,25 +509,28 @@ MainApplication::~MainApplication()
 }
 
 void MainApplication::setMainWidgetVisible(bool visible) {
-  if (!m_mainWidgetPlugin) {
-    IPlugin* plugin = NULL;
-    if (m_pluginManager) {
-      plugin =
-          m_pluginManager->pluginInterface("IMainWidgetPlugin").value(0, NULL);
-      if (plugin) {
-        m_mainWidgetPlugin =
-            qobject_cast<IMainWidgetPlugin*>(plugin->instance());
-      }
-    }
-  }
-  if (m_mainWidgetPlugin) {
-    auto widget = m_mainWidgetPlugin->mainWidget()->instance();
-    if (widget && visible) {
-      widget->raise();
-      widget->showNormal();
-      widget->activateWindow();
-    }
-  }
+  
+  //插件内的主窗口插件设置显示和隐藏
+
+  //if (!m_mainWidgetPlugin) {
+  //  IPlugin* plugin = NULL;
+  //  if (m_pluginManager) {
+  //    plugin =
+  //        m_pluginManager->pluginInterface("IMainWidgetPlugin").value(0, NULL);
+  //    if (plugin) {
+  //      m_mainWidgetPlugin =
+  //          qobject_cast<IMainWidgetPlugin*>(plugin->instance());
+  //    }
+  //  }
+  //}
+  //if (m_mainWidgetPlugin) {
+  //  auto widget = m_mainWidgetPlugin->mainWidget()->instance();
+  //  if (widget && visible) {
+  //    widget->raise();
+  //    widget->showNormal();
+  //    widget->activateWindow();
+  //  }
+  //}
 }
 
 #ifdef Q_OS_MAC
@@ -565,7 +568,7 @@ void MainApplication::initPlugin()
         plugin = m_pluginManager->pluginInterface("IMainWidgetPlugin").value(0,NULL);
         if (plugin)
         {
-            m_mainWidgetPlugin = qobject_cast<IMainWidgetPlugin *>(plugin->instance());
+            //m_mainWidgetPlugin = qobject_cast<IMainWidgetPlugin *>(plugin->instance());
         }
     }
 }
@@ -586,7 +589,7 @@ void MainApplication::onPluginManagerAboutToQuit()
 
 void MainApplication::onMessageReceived(QString msg) {
   if (msg == "raise_window_noop") {
-    IPlugin* plugin = NULL;
+    /*IPlugin* plugin = NULL;
     plugin =
         m_pluginManager->pluginInterface("IMainWidgetPlugin").value(0, NULL);
     if (plugin) {
@@ -599,26 +602,7 @@ void MainApplication::onMessageReceived(QString msg) {
         widget->showNormal();
         widget->activateWindow();
       }
-    }
-  }
-
-
-  QString green_packet_lib_path_flag = "green_packet_lib_path:";
-  if (msg.startsWith(green_packet_lib_path_flag)) {
-    int flag_length = green_packet_lib_path_flag.length();
-    QString path = msg.mid(flag_length, msg.length() - flag_length);
-    IPlugin* plugin = NULL;
-    plugin =
-        m_pluginManager->pluginInterface("IMainWidgetPlugin").value(0, NULL);
-    if (plugin) {
-      IMainWidgetPlugin* bfMainWidgetPlugin =
-          qobject_cast<IMainWidgetPlugin*>(plugin->instance());
-      if (bfMainWidgetPlugin) {
-        auto widget = bfMainWidgetPlugin->mainWidget();
-        //切换素材库
-        widget->GreenPacketLauncherRequestOpenLib(path);
-      }
-    }
+    }*/
   }
 }
 
@@ -637,12 +621,12 @@ void MainApplication::onAboutToQuit()
     plugin =
         m_pluginManager->pluginInterface("IMainWidgetPlugin").value(0, NULL);
     if (plugin) {
-      IMainWidgetPlugin* bfMainWidgetPlugin =
-          qobject_cast<IMainWidgetPlugin*>(plugin->instance());
-      if (bfMainWidgetPlugin) {
-        auto widget = bfMainWidgetPlugin->mainWidget();
-        widget->DoMacDockQuit();
-      }
+      //IMainWidgetPlugin* bfMainWidgetPlugin =
+      //    qobject_cast<IMainWidgetPlugin*>(plugin->instance());
+      //if (bfMainWidgetPlugin) {
+      //  auto widget = bfMainWidgetPlugin->mainWidget();
+      //  widget->DoMacDockQuit();
+      //}
     }
 #endif
 }

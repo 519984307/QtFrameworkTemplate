@@ -1,0 +1,149 @@
+INCLUDE_DIRECTORIES(.)
+INCLUDE_DIRECTORIES(../)
+INCLUDE_DIRECTORIES(../thirdparty)
+INCLUDE_DIRECTORIES(bfBaseWindow)
+
+set( COMMON_SOURCE_FILE
+    FramelessHelper.h
+    bfBaseWindow/BFFontSetting.h
+    bfBaseWindow/BFMessageBox.h
+    bfBaseWindow/BfProgressDialog.h
+    bfBaseWindow/CNotificationFloatingWidget.h
+    bfBaseWindow/CResourceItem.h
+    bfBaseWindow/CScrollArea.h
+    bfBaseWindow/CLineEdited.h
+    bfBaseWindow/BFScrollBar.h
+    bfBaseWindow/PngArrayPlayWid.h
+    bfBaseWindow/CNewWidget.h
+    bfBaseWindow/CPushButton.h
+    bfBaseWindow/BFSkinManager.h
+    bfBaseWindow/CTitleToolTip.h
+    bfBaseWindow/CTitleBarWidget.h
+    bfBaseWindow/CPopupTitleBarWidget.h
+    bfBaseWindow/CPopupDialog.h
+    bfBaseWindow/CLineEdited.h
+    bfBaseWindow/BFComboBoxView.h
+    bfBaseWindow/BFImportEntranceWidget.h
+#    bfBaseWindow/BFCustomMenu.h
+    bfBaseWindow/CIndexFloatingDialog.h
+    bfBaseWindow/CustomControls.h
+    bfBaseWindow/CHyperlinkLabel.h
+    bfBaseWindow/CIndexToCopyResultDialog.h
+    bfcrossplatformutils.h
+    bfobserver.h
+    bfqtutils.h
+    pimpl.h
+    pimpl_impl.h
+    pixmapconverter.h
+    clickablelabel.h
+    borderpixmap.h
+    borderimage.h
+    unzipfile.h
+    utilsexport.h
+    skinmanager.h
+    circleavatarlabel.h
+    windowsizetoolbar.h
+    toolbutton.h
+    colors.h
+    regexp.h
+    log.h
+    console.h
+    versionparser.h
+    messagebox.h
+    bftypeutils.h
+    QtFlieOperation.h
+    mapwidget.h
+    bfcheckfilestate.h
+    bfstructoperate.h
+    FramelessHelper.cpp
+    bfBaseWindow/BFFontSetting.cpp
+    bfBaseWindow/BFMessageBox.cpp
+    bfBaseWindow/BfProgressDialog.cpp
+    bfBaseWindow/CNotificationFloatingWidget.cpp
+    bfBaseWindow/CResourceItem.cpp
+    bfBaseWindow/CScrollArea.cpp
+    bfBaseWindow/CLineEdited.cpp
+    bfBaseWindow/BFScrollBar.cpp
+    bfBaseWindow/PngArrayPlayWid.cpp
+    bfBaseWindow/CNewWidget.cpp
+    bfBaseWindow/CPushButton.cpp
+    bfBaseWindow/BFSkinManager.cpp
+    bfBaseWindow/CTitleToolTip.cpp
+    bfBaseWindow/CTitleBarWidget.cpp
+    bfBaseWindow/CPopupTitleBarWidget.cpp
+    bfBaseWindow/CPopupDialog.cpp
+    bfBaseWindow/CLineEdited.cpp
+    bfBaseWindow/BFComboBoxView.cpp
+    bfBaseWindow/BFImportEntranceWidget.cpp
+#    bfBaseWindow/BFCustomMenu.cpp
+    bfBaseWindow/CIndexFloatingDialog.cpp
+    bfBaseWindow/CustomControls.cpp
+    bfBaseWindow/CHyperlinkLabel.cpp
+    bfBaseWindow/CIndexToCopyResultDialog.cpp
+    bfBaseWindow/BFHidenSideWidget.cpp
+    bfBaseWindow/BFHidenSideWidget.h
+    bfBaseWindow/BFSliderActionWidget.cpp
+    bfBaseWindow/BFSliderActionWidget.h
+    bfBaseWindow/CListSearchLineEdit.cpp
+    bfBaseWindow/CListSearchLineEdit.h
+    bfBaseWindow/CListSearchLineEdit.ui
+    bfcrossplatformutils.cpp
+    bfobserver.cpp
+    bfqtutils.cpp
+    pixmapconverter.cpp
+    clickablelabel.cpp
+    borderpixmap.cpp
+    borderimage.cpp
+    unzipfile.cpp
+    skinmanager.cpp
+    circleavatarlabel.cpp
+    windowsizetoolbar.cpp
+    toolbutton.cpp
+    colors.cpp
+    regexp.cpp
+    log.cpp
+    console.cpp
+    versionparser.cpp
+    messagebox.cpp
+    bftypeutils.cpp
+    QtFlieOperation.cpp
+    mapwidget.cpp
+    bfstructoperate.cpp
+    bfBaseWindow/BFMessageBox.ui
+    bfBaseWindow/PngArrayPlayWid.ui
+    messagebox.ui
+        BFCommandLineParser.h
+        BFCommandLineParser.cpp
+)
+
+set(SPECIFIC_FILES)
+if (APPLE)
+    INCLUDE_DIRECTORIES(../../dependency/ATAnalytics/ATAnalyticsSDK/ATAEventTracker/SensorsAnalyticsSDK)
+    INCLUDE_DIRECTORIES(Platform/MacOs)
+
+    list(APPEND SPECIFIC_FILES
+            "Platform/MacOs/SystemUtils.mm"
+            "widgetmanager.mm"
+            "NcFramelessHelper.mm"
+            "Platform/MacOs/SystemUtils.mm"
+            "Platform/MacOs/os_define.h"
+            "Platform/MacOs/SystemUtilsCInterface.h"
+            "Platform/MacOs/SystemUtils.h"
+            "../../dependency/ATAnalytics/ATAnalyticsSDK/ATAEventTracker/SensorsAnalyticsSDK/SSZipArchive.h"
+            "Platform/MacOs/os_define.cpp"
+            "../../dependency/ATAnalytics/ATAnalyticsSDK/ATAEventTracker/SensorsAnalyticsSDK/SAGzipUtility.m"
+            )
+
+endif(APPLE)
+
+INCLUDE_DIRECTORIES(.)
+INCLUDE_DIRECTORIES(../..)
+INCLUDE_DIRECTORIES(../thirdparty)
+INCLUDE_DIRECTORIES(../thirdparty/minizip)
+
+add_library(utils STATIC
+        ${COMMON_SOURCE_FILE}
+        ${SPECIFIC_FILES}
+        )
+
+target_link_libraries(utils Qt5::Core Qt5::Gui Qt5::Widgets Qt5::Svg zlib minizip qxtglobalshortcut log4qt ${PLATFORM_SPECIFIC_LIBS})

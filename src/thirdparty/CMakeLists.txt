@@ -1,0 +1,5 @@
+add_subdirectory(qjson)
+add_subdirectory(zlib)
+add_subdirectory(minizip)
+add_subdirectory(qxtglobalshortcut)
+add_subdirectory(log4qt)

@@ -1,0 +1,583 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{06521D3A-2367-3678-93C2-95790DC0A610}</ProjectGuid>
+    <RootNamespace>utils</RootNamespace>
+    <Keyword>QtVS_v304</Keyword>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformMinVersion>10.0.19041.0</WindowsTargetPlatformMinVersion>
+  <QtMsBuild Condition="'$(QtMsBuild)'=='' or !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild></PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <PlatformToolset>v142</PlatformToolset>
+    <OutputDirectory>..\libs\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <IntermediateDirectory>..\..\tmp\utils\</IntermediateDirectory>
+    <PrimaryOutput>utils</PrimaryOutput>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <PlatformToolset>v142</PlatformToolset>
+    <OutputDirectory>..\libs\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <IntermediateDirectory>..\..\tmp\utils\</IntermediateDirectory>
+    <PrimaryOutput>utils</PrimaryOutput>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" /><Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')"><Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." /></Target>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" /><ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')"><Import Project="$(QtMsBuild)\qt_defaults.props" /></ImportGroup><PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"><OutDir>..\libs\</OutDir><IntDir>..\..\tmp\utils\</IntDir><TargetName>utils</TargetName><IgnoreImportLibrary>true</IgnoreImportLibrary></PropertyGroup><PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'"><OutDir>..\libs\</OutDir><IntDir>..\..\tmp\utils\</IntDir><TargetName>utils</TargetName><IgnoreImportLibrary>true</IgnoreImportLibrary></PropertyGroup><PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"><QtInstall>msvc2019_64</QtInstall><QtModules>core;core-private;xml;sql;network;gui;gui-private;svg;svg-private;widgets;widgets-private;printsupport</QtModules></PropertyGroup><PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'"><QtInstall>msvc2019_64</QtInstall><QtModules>core;core-private;xml;sql;network;gui;gui-private;svg;svg-private;widgets;widgets-private;printsupport</QtModules></PropertyGroup><ImportGroup Condition="Exists('$(QtMsBuild)\qt.props')"><Import Project="$(QtMsBuild)\qt.props" /></ImportGroup>
+  
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;..\thirdparty;..\thirdparty\minizip;..;bfBaseWindow;..\..\tmp\utils;forms;/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>..\..\tmp\utils\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>..\..\tmp\utils\</ObjectFileName>
+      <Optimization>MaxSpeed</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;W7API;PLUGINS_DIR="././ui_plugins";RESOURCES_DIR="././resources";TRANSLATIONS_DIR="././translations";NDEBUG;QT_NO_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+    <MultiProcessorCompilation>true</MultiProcessorCompilation></ClCompile>
+    <Lib>
+      <OutputFile>$(OutDir)\utils.lib</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;W7API;PLUGINS_DIR=\"././ui_plugins\";RESOURCES_DIR=\"././resources\";TRANSLATIONS_DIR=\"././translations\";NDEBUG;QT_NO_DEBUG;QT_PRINTSUPPORT_LIB;QT_SVG_LIB;QT_WIDGETS_LIB;QT_GUI_LIB;QT_NETWORK_LIB;QT_SQL_LIB;QT_XML_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  <QtMoc><ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription><DynamicSource>output</DynamicSource><QtMocDir>..\..\tmp\utils</QtMocDir><QtMocFileName>moc_%(Filename).cpp</QtMocFileName></QtMoc><QtUic><ExecutionDescription>Uic'ing %(Identity)...</ExecutionDescription><QtUicDir>forms</QtUicDir><QtUicFileName>ui_%(Filename).h</QtUicFileName></QtUic></ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.\GeneratedFiles\$(ConfigurationName);.\GeneratedFiles;.;..\thirdparty;..\thirdparty\minizip;..;bfBaseWindow;..\..\tmp\utils;forms;/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>..\..\tmp\utils\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ObjectFileName>..\..\tmp\utils\</ObjectFileName>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;W7API;PLUGINS_DIR="././ui_plugins";RESOURCES_DIR="././resources";TRANSLATIONS_DIR="././translations";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+    <MultiProcessorCompilation>true</MultiProcessorCompilation></ClCompile>
+    <Lib>
+      <OutputFile>$(OutDir)\utils.lib</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;W7API;PLUGINS_DIR=\"././ui_plugins\";RESOURCES_DIR=\"././resources\";TRANSLATIONS_DIR=\"././translations\";QT_PRINTSUPPORT_LIB;QT_SVG_LIB;QT_WIDGETS_LIB;QT_GUI_LIB;QT_NETWORK_LIB;QT_SQL_LIB;QT_XML_LIB;QT_CORE_LIB;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  <QtUic><ExecutionDescription>Uic'ing %(Identity)...</ExecutionDescription><QtUicDir>forms</QtUicDir><QtUicFileName>ui_%(Filename).h</QtUicFileName></QtUic><QtMoc><ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription><DynamicSource>output</DynamicSource><QtMocDir>..\..\tmp\utils</QtMocDir><QtMocFileName>moc_%(Filename).cpp</QtMocFileName></QtMoc></ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="bfBaseWindow\BFComboBoxView.cpp" />
+    <ClCompile Include="BFCommandLineParser.cpp" />
+    <ClCompile Include="bfBaseWindow\BFCustomMenu.cpp" />
+    <ClCompile Include="bfBaseWindow\BFFileAndFolderDialog.cpp" />
+    <ClCompile Include="bfBaseWindow\BFFontSetting.cpp" />
+    <ClCompile Include="bfBaseWindow\BFHidenSideWidget.cpp" />
+    <ClCompile Include="bfBaseWindow\BFImportEntranceWidget.cpp" />
+    <ClCompile Include="bfBaseWindow\BFMessageBox.cpp" />
+    <ClCompile Include="bfBaseWindow\BFScrollBar.cpp" />
+    <ClCompile Include="bfBaseWindow\BFSkinManager.cpp" />
+    <ClCompile Include="bfBaseWindow\BFSliderActionWidget.cpp" />
+    <ClCompile Include="bfBaseWindow\BfProgressDialog.cpp" />
+    <ClCompile Include="bfBaseWindow\CHyperlinkLabel.cpp" />
+    <ClCompile Include="bfBaseWindow\CIndexFloatingDialog.cpp" />
+    <ClCompile Include="bfBaseWindow\CIndexToCopyResultDialog.cpp" />
+    <ClCompile Include="bfBaseWindow\CLineEdited.cpp" />
+    <ClCompile Include="bfBaseWindow\CListSearchLineEdit.cpp" />
+    <ClCompile Include="bfBaseWindow\CNewWidget.cpp" />
+    <ClCompile Include="bfBaseWindow\CNotificationFloatingWidget.cpp" />
+    <ClCompile Include="bfBaseWindow\CPopupDialog.cpp" />
+    <ClCompile Include="bfBaseWindow\CPopupTitleBarWidget.cpp" />
+    <ClCompile Include="bfBaseWindow\CPushButton.cpp" />
+    <ClCompile Include="bfBaseWindow\CResourceItem.cpp" />
+    <ClCompile Include="bfBaseWindow\CScrollArea.cpp" />
+    <ClCompile Include="bfBaseWindow\CTitleBarWidget.cpp" />
+    <ClCompile Include="bfBaseWindow\CTitleToolTip.cpp" />
+    <ClCompile Include="bfBaseWindow\CustomControls.cpp" />
+    <ClCompile Include="FramelessHelper.cpp" />
+    <ClCompile Include="NcFramelessHelper.cpp" />
+    <ClCompile Include="bfBaseWindow\PngArrayPlayWid.cpp" />
+    <ClCompile Include="QtFlieOperation.cpp" />
+    <ClCompile Include="bfcrossplatformutils.cpp" />
+    <ClCompile Include="bfobserver.cpp" />
+    <ClCompile Include="bfqtutils.cpp" />
+    <ClCompile Include="bfstructoperate.cpp" />
+    <ClCompile Include="bftypeutils.cpp" />
+    <ClCompile Include="borderimage.cpp" />
+    <ClCompile Include="borderpixmap.cpp" />
+    <ClCompile Include="circleavatarlabel.cpp" />
+    <ClCompile Include="clickablelabel.cpp" />
+    <ClCompile Include="colors.cpp" />
+    <ClCompile Include="console.cpp" />
+    <ClCompile Include="log.cpp" />
+    <ClCompile Include="mapwidget.cpp" />
+    <ClCompile Include="messagebox.cpp" />
+    <ClCompile Include="pixmapconverter.cpp" />
+    <ClCompile Include="regexp.cpp" />
+    <ClCompile Include="skinmanager.cpp" />
+    <ClCompile Include="system_os.cpp" />
+    <ClCompile Include="toolbutton.cpp" />
+    <ClCompile Include="unzipfile.cpp" />
+    <ClCompile Include="versionparser.cpp" />
+    <ClCompile Include="widgetmanager.cpp" />
+    <ClCompile Include="windowsizetoolbar.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="bfBaseWindow\BFComboBoxView.h" />
+    <ClInclude Include="BFCommandLineParser.h" />
+    <QtMoc Include="bfBaseWindow\BFCustomMenu.h">
+      
+      
+      
+      
+      
+      
+      
+      
+    <CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Release|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include><CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include></QtMoc>
+    <ClInclude Include="bfBaseWindow\BFFileAndFolderDialog.h" />
+    <ClInclude Include="bfBaseWindow\BFFontSetting.h" />
+    <QtMoc Include="bfBaseWindow\BFHidenSideWidget.h">
+      
+      
+      
+      
+      
+      
+      
+      
+    <CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Release|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include><CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include></QtMoc>
+    <QtMoc Include="bfBaseWindow\BFImportEntranceWidget.h">
+      
+      
+      
+      
+      
+      
+      
+      
+    <CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Release|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include><CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include></QtMoc>
+    <QtMoc Include="bfBaseWindow\BFMessageBox.h">
+      
+      
+      
+      
+      
+      
+      
+      
+    <CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Release|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include><CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include></QtMoc>
+    <QtMoc Include="bfBaseWindow\BFScrollBar.h">
+      
+      
+      
+      
+      
+      
+      
+      
+    <CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Release|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include><CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include></QtMoc>
+    <ClInclude Include="bfBaseWindow\BFSkinManager.h" />
+    <QtMoc Include="bfBaseWindow\BFSliderActionWidget.h">
+      
+      
+      
+      
+      
+      
+      
+      
+    <CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Release|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include><CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include></QtMoc>
+    <QtMoc Include="bfBaseWindow\BfProgressDialog.h">
+      
+      
+      
+      
+      
+      
+      
+      
+    <CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Release|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include><CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include></QtMoc>
+    <QtMoc Include="bfBaseWindow\CHyperlinkLabel.h">
+      
+      
+      
+      
+      
+      
+      
+      
+    <CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Release|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include><CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include></QtMoc>
+    <QtMoc Include="bfBaseWindow\CIndexFloatingDialog.h">
+      
+      
+      
+      
+      
+      
+      
+      
+    <CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Release|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include><CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include></QtMoc>
+    <QtMoc Include="bfBaseWindow\CIndexToCopyResultDialog.h">
+      
+      
+      
+      
+      
+      
+      
+      
+    <CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Release|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include><CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include></QtMoc>
+    <QtMoc Include="bfBaseWindow\CLineEdited.h">
+      
+      
+      
+      
+      
+      
+      
+      
+    <CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Release|x64'">msvc;msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h;F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include><CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">msvc;msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h;F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include></QtMoc>
+    <QtMoc Include="bfBaseWindow\CListSearchLineEdit.h">
+      
+      
+      
+      
+      
+      
+      
+      
+    <CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Release|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include><CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include></QtMoc>
+    <QtMoc Include="bfBaseWindow\CNewWidget.h">
+      
+      
+      
+      
+      
+      
+      
+      
+    <CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Release|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include><CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include></QtMoc>
+    <ClInclude Include="bfBaseWindow\CNotificationFloatingWidget.h" />
+    <QtMoc Include="bfBaseWindow\CPopupDialog.h">
+      
+      
+      
+      
+      
+      
+      
+      
+    <CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Release|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include><CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include></QtMoc>
+    <QtMoc Include="bfBaseWindow\CPopupTitleBarWidget.h">
+      
+      
+      
+      
+      
+      
+      
+      
+    <CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Release|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include><CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include></QtMoc>
+    <QtMoc Include="bfBaseWindow\CPushButton.h">
+      
+      
+      
+      
+      
+      
+      
+      
+    <CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Release|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include><CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include></QtMoc>
+    <ClInclude Include="bfBaseWindow\CResourceItem.h" />
+    <QtMoc Include="bfBaseWindow\CScrollArea.h">
+      
+      
+      
+      
+      
+      
+      
+      
+    <CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Release|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include><CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include></QtMoc>
+    <QtMoc Include="bfBaseWindow\CTitleBarWidget.h">
+      
+      
+      
+      
+      
+      
+      
+      
+    <CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Release|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include><CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include></QtMoc>
+    <ClInclude Include="bfBaseWindow\CTitleToolTip.h" />
+    <QtMoc Include="bfBaseWindow\CustomControls.h">
+      
+      
+      
+      
+      
+      
+      
+      
+    <CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Release|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include><CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include></QtMoc>
+    <QtMoc Include="FramelessHelper.h">
+      
+      
+      
+      
+      
+      
+      
+      
+    <CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Release|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include><CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include></QtMoc>
+    <QtMoc Include="bfBaseWindow\PngArrayPlayWid.h">
+      
+      
+      
+      
+      
+      
+      
+      
+    <CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Release|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include><CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include></QtMoc>
+    <ClInclude Include="QtFlieOperation.h" />
+    <ClInclude Include="bfcheckfilestate.h" />
+    <ClInclude Include="bfcrossplatformutils.h" />
+    <ClInclude Include="bfobserver.h" />
+    <ClInclude Include="bfqtutils.h" />
+    <ClInclude Include="bfstructoperate.h" />
+    <ClInclude Include="bftypeutils.h" />
+    <ClInclude Include="borderimage.h" />
+    <ClInclude Include="borderpixmap.h" />
+    <QtMoc Include="circleavatarlabel.h">
+      
+      
+      
+      
+      
+      
+      
+      
+    <CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Release|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include><CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include></QtMoc>
+    <QtMoc Include="clickablelabel.h">
+      
+      
+      
+      
+      
+      
+      
+      
+    <CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Release|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include><CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include></QtMoc>
+    <ClInclude Include="colors.h" />
+    <QtMoc Include="console.h">
+      
+      
+      
+      
+      
+      
+      
+      
+    <CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Release|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include><CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include></QtMoc>
+    <ClInclude Include="log.h" />
+    <QtMoc Include="mapwidget.h">
+      
+      
+      
+      
+      
+      
+      
+      
+    <CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Release|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include><CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include></QtMoc>
+    <QtMoc Include="messagebox.h">
+      
+      
+      
+      
+      
+      
+      
+      
+    <CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Release|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include><CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include></QtMoc>
+    <ClInclude Include="pimpl.h" />
+    <ClInclude Include="pimpl_impl.h" />
+    <ClInclude Include="pixmapconverter.h" />
+    <ClInclude Include="regexp.h" />
+    <QtMoc Include="skinmanager.h">
+      
+      
+      
+      
+      
+      
+      
+      
+    <CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Release|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include><CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include></QtMoc>
+    <ClInclude Include="system_os.h" />
+    <QtMoc Include="toolbutton.h">
+      
+      
+      
+      
+      
+      
+      
+      
+    <CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Release|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include><CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include></QtMoc>
+    <ClInclude Include="unzipfile.h" />
+    <ClInclude Include="utilsexport.h" />
+    <ClInclude Include="versionparser.h" />
+    <QtMoc Include="windowsizetoolbar.h">
+      
+      
+      
+      
+      
+      
+      
+      
+    <CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Release|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Release|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include><CompilerFlavor Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">msvc</CompilerFlavor><Include Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">F:/GitWorkSpace/QtFrameworkTemplate/tmp/utils/moc_predefs.h</Include></QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <CustomBuild Include="..\..\tmp\utils\moc_predefs.h.cbt">
+      <FileType>Document</FileType>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">cl -Bx"$(QTDIR)\bin\qmake.exe" -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -O2 -Zi -MD -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -E $(QTDIR)\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;..\..\tmp\utils\moc_predefs.h</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generate moc_predefs.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\tmp\utils\moc_predefs.h;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\mkspecs\features\data\dummy.cpp;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">cl -Bx"$(QTDIR)\bin\qmake.exe" -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus -Zi -MDd -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -E $(QTDIR)\mkspecs\features\data\dummy.cpp 2&gt;NUL &gt;..\..\tmp\utils\moc_predefs.h</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generate moc_predefs.h</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\tmp\utils\moc_predefs.h;%(Outputs)</Outputs>
+    </CustomBuild>
+    
+    
+    
+    
+    
+    
+    
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\translations\zh_CN\utils.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="bfBaseWindow\BFMessageBox.ui">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </QtUic>
+    <QtUic Include="bfBaseWindow\CListSearchLineEdit.ui">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </QtUic>
+    <QtUic Include="bfBaseWindow\PngArrayPlayWid.ui">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </QtUic>
+    <QtUic Include="messagebox.ui">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </QtUic>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" /><ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')"><Import Project="$(QtMsBuild)\qt.targets" /></ImportGroup>
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

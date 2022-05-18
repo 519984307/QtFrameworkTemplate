@@ -26,10 +26,13 @@
 #OBJECTS_DIR += ../../../tmp/$$TARGET
 include(../../config.pri)
 
+#表明这个makefile是一个lib的makefile
 TEMPLATE   = lib
 DEFINES   += LOG4QT_LIBRARY
 DESTDIR        = $$LIBSDESTDIR
 DLLDESTDIR = $$BINDESTDIR
+
+ #应用程序是一个插件
 CONFIG             += plugin
 
 

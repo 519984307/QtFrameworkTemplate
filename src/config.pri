@@ -29,24 +29,19 @@ PLUGINSDESTDIR = $$BINDESTDIR/ui_plugins
 QT +=  network core
 
 #对不同版本qt包含做特殊处理
-isEqual(QT_MAJOR_VERSION, 5) 
-{
+isEqual(QT_MAJOR_VERSION, 5) {
 QT += widgets printsupport sql widgets-private gui-private core-private svg-private
-} 
-else 
-{
+}else{
 QT +=  gui
 }
 
 #mac平台处理
-macx 
-{
+macx {
 QT += macextras
 }
 
 
-win32
-{
+win32{
 #设置项目支持C++11
 CONFIG += c++11
 #设置项目支持libc++库
@@ -57,14 +52,12 @@ QMAKE_LFLAGS_RELEASE = $$QMAKE_LFLAGS_RELEASE_WITH_DEBUGINFO
 }
 
 #包含一些库
-win32-msvc* 
-{
+win32-msvc* {
     DEFINES *= W7API
     LIBS += User32.lib Ole32.lib Shell32.lib ShlWapi.lib Gdi32.lib ComCtl32.lib
 }
 
-macx 
-{
+macx {
 QMAKE_TARGET_BUNDLE_PREFIX = "cn.billfish"
 CONFIG += c++11
 CONFIG += libc++
@@ -93,39 +86,32 @@ QMAKE_LFLAGS_RELEASE += $$QMAKE_LFLAGS_RELEASE_WITH_DEBUGINFO
 CONFIG += x86 ppc x86_64 ppc64
 
 #Configurable values
-isEmpty(INSTALL_PREFIX) 
-{
+isEmpty(INSTALL_PREFIX) {
   win32:INSTALL_PREFIX   = "c:"
   macx: INSTALL_PREFIX   = /Applications
 }
 
-isEmpty(INSTALL_APP_DIR)
- {
+isEmpty(INSTALL_APP_DIR){
   win32:INSTALL_APP_DIR  = $${TARGET_INSTANCE}
   macx: INSTALL_APP_DIR  = $${TARGET_INSTANCE}.app
 }
 
-isEmpty(INSTALL_LIB_DIR)
- {
+isEmpty(INSTALL_LIB_DIR){
   win32:INSTALL_LIB_DIR  = .
   macx: INSTALL_LIB_DIR  = Frameworks
 }
 
-isEmpty(INSTALL_RES_DIR) 
-{
+isEmpty(INSTALL_RES_DIR) {
   win32:INSTALL_RES_DIR  = .
   macx: INSTALL_RES_DIR  = Resources
 }
 
 
-win32 
-{
+win32 {
   DEFINES               += PLUGINS_DIR='\\\"./$${INSTALL_LIB_DIR}/ui_plugins\\\"'
   DEFINES               += RESOURCES_DIR='\\\"./$${INSTALL_RES_DIR}/resources\\\"'
   DEFINES               += TRANSLATIONS_DIR='\\\"./$${INSTALL_RES_DIR}/translations\\\"'
-} 
-else:macx 
-{
+} else:macx {
   DEFINES               += PLUGINS_DIR='\\\"../PlugIns\\\"'
   DEFINES               += RESOURCES_DIR='\\\"../$${INSTALL_RES_DIR}\\\"'
   DEFINES               += TRANSLATIONS_DIR='\\\"../$${INSTALL_RES_DIR}/translations\\\"'

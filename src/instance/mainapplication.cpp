@@ -511,25 +511,25 @@ void MainApplication::setMainWidgetVisible(bool visible) {
   
   //插件内的主窗口插件设置显示和隐藏
 
-  //if (!m_mainWidgetPlugin) {
-  //  IPlugin* plugin = NULL;
-  //  if (m_pluginManager) {
-  //    plugin =
-  //        m_pluginManager->pluginInterface("IMainWidgetPlugin").value(0, NULL);
-  //    if (plugin) {
-  //      m_mainWidgetPlugin =
-  //          qobject_cast<IMainWidgetPlugin*>(plugin->instance());
-  //    }
-  //  }
-  //}
-  //if (m_mainWidgetPlugin) {
-  //  auto widget = m_mainWidgetPlugin->mainWidget()->instance();
-  //  if (widget && visible) {
-  //    widget->raise();
-  //    widget->showNormal();
-  //    widget->activateWindow();
-  //  }
-  //}
+  if (!m_mainWidgetPlugin) {
+    IPlugin* plugin = NULL;
+    if (m_pluginManager) {
+      plugin =
+          m_pluginManager->pluginInterface("IMainWidgetPlugin").value(0, NULL);
+      if (plugin) {
+        m_mainWidgetPlugin =
+            qobject_cast<IMainWidgetPlugin*>(plugin->instance());
+      }
+    }
+  }
+  if (m_mainWidgetPlugin) {
+    auto widget = m_mainWidgetPlugin->mainWidget()->instance();
+    if (widget && visible) {
+      widget->raise();
+      widget->showNormal();
+      widget->activateWindow();
+    }
+  }
 }
 
 #ifdef Q_OS_MAC

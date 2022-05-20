@@ -2,14 +2,20 @@ include(../config.pri)
 include(../install.pri)
 
 
+#名称
 TARGET = bfcommon
+#该项目是一个库工程模板
 TEMPLATE = lib
+#支持c++11
 CONFIG += c++11
-DESTDIR         = $$LIBSDESTDIR
-CONFIG             += plugin
+#输出目录
+DESTDIR = $$LIBSDESTDIR
+#插件化
+CONFIG += plugin
+#dll输出目录
 DLLDESTDIR = $$BINDESTDIR
 DEFINES += BUILD_COMMON_LIB
-
+#禁用去除gui模块
 QT -= gui
 
 win32 {
@@ -24,14 +30,11 @@ win32 {
         LIBS += -L$$PWD/../../dependency/json_r/win-x64-msvc/lib
         CONFIG(debug, debug|release){
                 LIBS+= -lCommond
-                   LIBS+= -ljson_vs19_v142_libmdd_a
+                LIBS+= -ljson_vs19_v142_libmdd_a
         }else{
-                       LIBS+= -lCommon
-                   LIBS+= -ljson_vs19_v142_libmd_a
+                LIBS+= -lCommon
+                LIBS+= -ljson_vs19_v142_libmd_a
         }
-
-
-
     }else{
         LIBS += -L$$PWD/../../dependency/zlib_r/win-x86-msvc/lib \
                 -lzlib

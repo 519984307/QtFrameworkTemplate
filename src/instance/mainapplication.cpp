@@ -372,7 +372,6 @@ MainApplication::MainApplication(int &argc, char **argv) :
     resourcesDir.cd("Resources");
 
     Log4Qt::PropertyConfigurator::configure(resourcesDir.absolutePath() + "/log4qt.conf");
-
 #ifdef QT_DEBUG
     Log4Qt::LogManager::setHandleQtMessages(false);
 #else

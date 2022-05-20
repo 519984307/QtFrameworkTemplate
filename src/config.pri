@@ -14,8 +14,8 @@ TARGET_MANAGER     = QtFrameworkTemplateManager
 TARGET_UTILS       = utils
 TARGET_WEBWIDGET   = webwidget
 TARGET_SKIN        = skin
-TARGET_TRACE_EVENT = traceEvent
-TARGET_DOWNLOAD    = bfdownload
+#TARGET_TRACE_EVENT = traceEvent
+#TARGET_DOWNLOAD   = bfdownload
 TARGET_INTERFACE_PLUGIN = interfaces_plugin
 
 #指定软件bin目录

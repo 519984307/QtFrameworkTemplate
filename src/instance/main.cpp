@@ -67,7 +67,6 @@ int main(int argc, char* argv[]) {
 
   MainApplication app(argc, argv);
 
-
   qInfo() << "app.arguments()" << app.arguments();
    //判断开机自启动，如果是则后台启动
   bool auto_start = BFCommandLineParser::IsSetAutoRun();

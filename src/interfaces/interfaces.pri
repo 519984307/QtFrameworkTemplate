@@ -1,4 +1,5 @@
 HEADERS += iglobalsetting.h \
-           ipluginmanager.h 
+           ipluginmanager.h \
+           $$PWD/MainWidget/imainwidget.h
 
 

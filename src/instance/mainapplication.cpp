@@ -320,7 +320,7 @@ bool RegisterBillfishURI() {
 #endif  // _WIN32
 
 MainApplication::MainApplication(int &argc, char **argv) :
-    QtSingleApplication("{5D1C4995-CFC4-4212-8358-E5B69581BEA0}",argc, argv)
+    QtSingleApplication("{5D1C4995-CFC4-4212-8358-E5B69581BEA1}",argc, argv)
 {
     if(isRunning())
     {
@@ -496,8 +496,8 @@ MainApplication::MainApplication(int &argc, char **argv) :
     //initPlugin();
 
 #ifdef WIN32
-    RegisterBillfishURI();
-    RegeditYourFile("");
+    //RegisterBillfishURI();
+    //RegeditYourFile("");
 #endif
 }
 

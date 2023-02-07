@@ -15,7 +15,7 @@ class MainWidgetPlugin :
     Q_PLUGIN_METADATA(IID IPlugin_iid FILE "mainwidget.json")
 #endif
     Q_INTERFACES(IPlugin IMainWidgetPlugin)
-public:
+   public:
     MainWidgetPlugin();
     ~MainWidgetPlugin();
 	virtual QObject* instance() { return this; }

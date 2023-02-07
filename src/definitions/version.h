@@ -3,11 +3,11 @@
 #include <QtGlobal>
 #include <QStringList>
 
-#define ORGANIZATION_NAME           "Billfish"
-#define APPLICATION_NAME            "Billfish"
-#define MANAGER_APPLICATION_NAME    "BillfishManager"
+#define ORGANIZATION_NAME           "QtFrameWorkTemp"
+#define APPLICATION_NAME            "QtFrameWorkTemp"
+#define MANAGER_APPLICATION_NAME    "QtFrameWorkTempManager"
 
-#define CLIENT_NAME             "Billfish"
+#define CLIENT_NAME             "QtFrameWorkTemp"
 #define CLIENT_VERSION          "1.0.0"
 #define CLIENT_VERSION_SUFIX    ""
 #define CLIENT_HOME_PAGE        "https://www.billfish.cn"
